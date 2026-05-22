@@ -1,0 +1,24 @@
+[Unit]
+Description=Auditex Deploy Poll
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+Environment=SITE_SLUG=auditex
+Environment=PROJECT_DIR=/opt/sites/auditex
+Environment=LOCK_FILE=/tmp/auditex-deploy.lock
+Environment=GITHUB_REPOSITORY=magrathean-uk/auditex.hu
+Environment=RELEASE_TAG=deploy-main
+Environment=DEPLOY_SCRIPT=/opt/sites/auditex/deploy.sh
+Environment=DEPLOY_STATE_FILE=/opt/sites/auditex/runtime/last_release
+EnvironmentFile=-/etc/auditex-deploy.env
+ExecStart=/usr/bin/python3 /opt/sites/auditex/scripts/poll_release.py
+SyslogIdentifier=auditex-deploy
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectHome=yes
+ProtectSystem=full
+ReadWritePaths=/opt/sites/auditex /tmp

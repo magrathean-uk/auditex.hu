@@ -1,0 +1,10 @@
+[Unit]
+Description=Poll for Auditex deploy releases
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=2min
+Unit=auditex-deploy-poll.service
+
+[Install]
+WantedBy=timers.target
