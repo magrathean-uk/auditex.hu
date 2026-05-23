@@ -6,19 +6,6 @@
   <meta name="robots" content="index,follow">
   <meta name="description" content="Auditex is a local-first Microsoft 365 and Google Workspace tenant audit toolkit for operators who need evidence, reports, and repeatable checks.">
   <title>Auditex - local-first tenant audit evidence</title>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S22ZH5M24J"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      ad_storage: 'denied',
-      analytics_storage: 'granted',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied'
-    });
-    gtag('js', new Date());
-    gtag('config', 'G-S22ZH5M24J', { anonymize_ip: true });
-  </script>
   <style>
     :root {
       color-scheme: light;
@@ -42,29 +29,12 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
-      background:
-        radial-gradient(circle at 1px 1px, rgba(21, 22, 22, 0.12) 1px, transparent 0) 0 0 / 24px 24px,
-        linear-gradient(180deg, #fbfaf6 0%, var(--bg) 48%, #ece8dd 100%);
+      background: var(--bg);
       color: var(--ink);
       line-height: 1.5;
       min-width: 320px;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(90deg, rgba(247, 245, 239, 0.94), rgba(247, 245, 239, 0.68) 40%, rgba(247, 245, 239, 0.95)),
-        radial-gradient(circle at 76% 12%, rgba(18, 106, 90, 0.16), transparent 28rem);
-      z-index: -1;
     }
 
     a {
@@ -136,23 +106,23 @@
       font-size: 14px;
       font-weight: 720;
       box-shadow: 0 12px 30px rgba(11, 70, 59, 0.18);
-      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
       white-space: nowrap;
     }
 
     .button:hover {
-      transform: translateY(-1px);
       background: var(--accent);
       box-shadow: 0 16px 38px rgba(11, 70, 59, 0.22);
     }
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.04fr) minmax(340px, 0.96fr);
-      gap: clamp(30px, 5vw, 72px);
+      grid-template-columns: 1fr;
+      max-width: 860px;
+      margin: 0 auto;
       align-items: center;
-      min-height: 74vh;
+      min-height: 62vh;
       padding: 48px 0 74px;
+      text-align: center;
     }
 
     .hero > *,
@@ -184,6 +154,8 @@
 
     .hero-copy {
       max-width: 640px;
+      margin-right: auto;
+      margin-left: auto;
       margin-top: 26px;
       color: #353631;
       font-size: clamp(18px, 2vw, 22px);
@@ -193,6 +165,7 @@
     .hero-actions {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 16px;
       margin-top: 34px;
       flex-wrap: wrap;
@@ -204,100 +177,6 @@
       font-weight: 720;
       border-bottom: 1px solid rgba(11, 70, 59, 0.28);
       padding-bottom: 2px;
-    }
-
-    .console {
-      background: rgba(255, 253, 247, 0.84);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      backdrop-filter: blur(14px);
-    }
-
-    .console-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 13px 15px;
-      border-bottom: 1px solid var(--line);
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 720;
-    }
-
-    .lights {
-      display: flex;
-      gap: 7px;
-    }
-
-    .lights span {
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(21, 22, 22, 0.14);
-    }
-
-    .lights span:nth-child(1) { background: #d7665b; }
-    .lights span:nth-child(2) { background: #dfb34e; }
-    .lights span:nth-child(3) { background: #52a47d; }
-
-    .console-body {
-      padding: 22px;
-      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-      font-size: 13px;
-      color: #1f2522;
-    }
-
-    .prompt {
-      display: block;
-      color: var(--accent-dark);
-      margin-bottom: 16px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .check-list {
-      display: grid;
-      gap: 12px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .check-list li {
-      display: grid;
-      grid-template-columns: 84px 1fr;
-      gap: 14px;
-      align-items: start;
-      padding: 12px 0;
-      border-top: 1px solid rgba(21, 22, 22, 0.1);
-    }
-
-    .check-list li:first-child {
-      border-top: 0;
-    }
-
-    .state {
-      color: var(--accent-dark);
-      font-size: 11px;
-      font-weight: 780;
-      text-transform: uppercase;
-    }
-
-    .check-list strong {
-      display: block;
-      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-      font-size: 14px;
-      margin-bottom: 2px;
-    }
-
-    .check-list span:last-child {
-      color: var(--muted);
-      line-height: 1.45;
-      overflow-wrap: anywhere;
     }
 
     section {
@@ -487,10 +366,35 @@
     }
 
     footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
       padding: 24px 0 36px;
       color: var(--muted);
       border-top: 1px solid var(--line);
       font-size: 13px;
+    }
+
+    .made-by {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--muted);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .made-by img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
     @media (max-width: 860px) {
@@ -504,6 +408,11 @@
       }
 
       header {
+        flex-direction: column;
+      }
+
+      footer {
+        align-items: flex-start;
         flex-direction: column;
       }
 
@@ -541,10 +450,6 @@
     }
 
     @media (max-width: 560px) {
-      body {
-        background-size: 20px 20px, auto;
-      }
-
       nav {
         flex-wrap: wrap;
         justify-content: flex-start;
@@ -558,13 +463,11 @@
         font-size: 17px;
       }
 
-      .console-body,
       .report,
       .unit {
         padding: 18px;
       }
 
-      .check-list li,
       .plain-list li {
         grid-template-columns: 1fr;
         gap: 6px;
@@ -572,11 +475,6 @@
 
       .step {
         grid-template-columns: 1fr;
-      }
-
-      .prompt {
-        white-space: normal;
-        overflow-wrap: anywhere;
       }
 
       .button {
@@ -621,29 +519,6 @@
           </div>
         </div>
 
-        <div class="console" aria-label="Auditex run preview">
-          <div class="console-top">
-            <div class="lights" aria-hidden="true"><span></span><span></span><span></span></div>
-            <span>local audit bundle</span>
-          </div>
-          <div class="console-body">
-            <span class="prompt">$ auditex run --probe-first --throttle-mode safe</span>
-            <ul class="check-list">
-              <li>
-                <span class="state">ready</span>
-                <span><strong>Microsoft 365 posture</strong>Identity, roles, mailbox posture, Exchange-assisted checks, and API inventory.</span>
-              </li>
-              <li>
-                <span class="state">ready</span>
-                <span><strong>Google Workspace posture</strong>Directory, Gmail, Groups, Drive metadata, Calendar sharing, and delegation coverage.</span>
-              </li>
-              <li>
-                <span class="state">local</span>
-                <span><strong>Report pack</strong>Manifest, summary, evidence index, findings, blockers, and customer handoff notes.</span>
-              </li>
-            </ul>
-          </div>
-        </div>
       </section>
 
       <section id="coverage" aria-labelledby="coverage-title">
@@ -659,8 +534,8 @@
           </article>
           <article class="unit">
             <span class="mini-label">Google Workspace</span>
-            <h3>Domain-delegated or OAuth read-only evidence.</h3>
-            <p>Collect Directory, Gmail posture, Groups settings, Drive metadata, Calendar ACLs, and admin coverage without reading message bodies or files.</p>
+            <h3>Domain-delegated review, with partial OAuth paths.</h3>
+            <p>Collect Directory, Gmail posture, Groups settings, Drive metadata, Calendar ACLs, and admin coverage without reading Gmail bodies, Drive files, or Calendar event content.</p>
           </article>
           <article class="unit">
             <span class="mini-label">Local output</span>
@@ -703,7 +578,7 @@
           <aside class="report" aria-label="Report pack contents">
             <span class="mini-label">Report pack</span>
             <h3>Contract-shaped local bundle.</h3>
-            <p>Skeleton site only. Product access is currently operator-led; generated artifacts remain local unless the operator exports them.</p>
+            <p>Customer packs include handoff notes, reports, API and permission ledgers, proof tables, selected safe source artifacts, and checksum verification.</p>
             <div class="report-grid">
               <div class="report-row"><span>run-manifest.json</span><span class="tag good">required</span></div>
               <div class="report-row"><span>reports/report-pack.json</span><span class="tag good">required</span></div>
@@ -722,8 +597,8 @@
             <p class="hero-copy">Auditex keeps setup guidance, live-run checks, and customer handoff material close to the evidence. It is audit-only for public v1 work: no remediation automation, no hosted tenant data store, no App Store wrapper.</p>
           </div>
           <ul class="plain-list">
-            <li><strong>Before access</strong><span>Generate Microsoft 365 or Google Workspace setup plans and know the required read-only scopes.</span></li>
-            <li><strong>During runs</strong><span>Use safe throttling, probe-first mode, explicit collector presets, and saved auth contexts when appropriate.</span></li>
+            <li><strong>Before access</strong><span>Generate provider-specific roles, scopes, admin steps, probe commands, and no-content-read assertions.</span></li>
+            <li><strong>During runs</strong><span>Use local MCP tools for run, probe, report, export, compare, blockers, permission, API-inventory, and proof-table views.</span></li>
             <li><strong>After runs</strong><span>Verify the report pack, compare runs, export selected artifacts, and hand off only reviewed material.</span></li>
           </ul>
         </div>
@@ -738,7 +613,11 @@
     </main>
 
     <footer>
-      <span>Auditex is built by Magrathean UK. Local-first tenant audit tooling for Microsoft 365 and Google Workspace.</span>
+      <a class="made-by" href="https://magrathean.uk/"><img src="/assets/magrathean-mark.svg" alt=""><span>Made by Magrathean UK</span></a>
+      <nav class="footer-links" aria-label="Legal links">
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
     </footer>
   </div>
 </body>
