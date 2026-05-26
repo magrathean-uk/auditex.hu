@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="index,follow">
-  <meta name="description" content="Auditex is an open-source, read-only Microsoft 365 and Google Workspace audit evidence toolkit. Source, docs, and releases live on GitHub.">
+  <meta name="description" content="Auditex is an open-source, read-only Microsoft 365 and Google Workspace audit evidence toolkit. GitHub is the source of truth.">
   <meta property="og:title" content="Auditex | Open-source tenant audit evidence">
   <meta property="og:description" content="Read-only Microsoft 365 and Google Workspace audit evidence toolkit. Source, docs, and releases live on GitHub.">
   <meta property="og:type" content="website">
@@ -41,121 +41,88 @@
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
-  <div class="site-shell">
+  <div class="page">
     <header class="site-header">
       <a class="brand" href="/" aria-label="Auditex home">
         <img class="brand-logo" src="/assets/auditex-logo.webp" width="96" height="96" alt="Auditex logo">
         <span>Auditex</span>
       </a>
       <nav class="site-nav" aria-label="Primary navigation">
-        <a href="#features">Features</a>
-        <a href="#flow">Flow</a>
-        <a href="#faq">FAQ</a>
+        <a href="#product">Product</a>
+        <a href="#scope">Scope</a>
+        <a href="#run">Run</a>
         <a href="https://github.com/magrathean-uk/auditex">GitHub</a>
       </nav>
     </header>
 
     <main id="content">
-      <section class="app-hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Open-source tenant audit evidence</p>
-          <h1>Auditex points serious audit work back to GitHub.</h1>
-          <p class="lead">Read-only Microsoft 365 and Google Workspace evidence collection, local raw outputs, and MCP-ready report packs. No tenant content reads.</p>
-          <div class="hero-actions">
-            <a class="button primary" href="https://github.com/magrathean-uk/auditex">View GitHub repo</a>
-            <a class="button secondary" href="https://github.com/magrathean-uk/auditex/releases">Releases</a>
-          </div>
-          <p class="small-note">Not certification. Not legal advice. Not guaranteed security.</p>
-        </div>
-
-        <div class="audit-panel" aria-label="Auditex evidence bundle preview">
-          <div class="panel-bar">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div class="panel-body">
-            <p class="panel-kicker">auditex run</p>
-            <h2>read-only proof chain</h2>
-            <div class="panel-row"><span>Provider</span><strong>M365 + Google Workspace</strong></div>
-            <div class="panel-row"><span>Mode</span><strong>Read-only</strong></div>
-            <div class="panel-row"><span>Content</span><strong>No content reads</strong></div>
-            <div class="panel-row"><span>Output</span><strong>Local raw evidence</strong></div>
-            <div class="panel-row"><span>Reports</span><strong>MCP-ready report packs</strong></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="features" class="section">
-        <div class="section-head">
-          <p class="eyebrow">What it is</p>
-          <h2>Small surface. Clear proof.</h2>
-        </div>
-        <div class="feature-grid">
-          <article>
-            <h3>Read-only</h3>
-            <p>Collectors are built for evidence, not tenant changes.</p>
-          </article>
-          <article>
-            <h3>No content reads</h3>
-            <p>Classifies API scope without reading mail or file bodies.</p>
-          </article>
-          <article>
-            <h3>Local evidence</h3>
-            <p>Raw outputs stay on the operator machine by default.</p>
-          </article>
-          <article>
-            <h3>Report packs</h3>
-            <p>Proof tables, checksums, and MCP context for review.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="flow" class="section split-section">
+      <section class="product-intro" id="product">
         <div>
-          <p class="eyebrow">How it runs</p>
-          <h2>From repo to reviewed pack.</h2>
+          <p class="label">Plain product page</p>
+          <h1>Auditex</h1>
+          <p class="lede">Open-source audit evidence for Microsoft 365 and Google Workspace.</p>
+          <p class="summary">Read-only collection, no content reads, local raw evidence, and MCP-ready report packs for human review.</p>
+          <div class="actions">
+            <a class="button primary" href="https://github.com/magrathean-uk/auditex">GitHub repository</a>
+            <a class="button" href="https://github.com/magrathean-uk/auditex/releases">Releases</a>
+          </div>
         </div>
-        <ol class="flow-list">
-          <li><strong>Clone</strong><span>Start from the GitHub source and release notes.</span></li>
-          <li><strong>Probe</strong><span>Confirm permissions and read-only boundaries.</span></li>
-          <li><strong>Collect</strong><span>Save evidence locally with validation metadata.</span></li>
-          <li><strong>Review</strong><span>Use report packs before any customer handoff.</span></li>
+
+        <dl class="fact-table" aria-label="Auditex facts">
+          <div><dt>Positioning</dt><dd>Evidence toolkit</dd></div>
+          <div><dt>Providers</dt><dd>Microsoft 365, Google Workspace</dd></div>
+          <div><dt>Tenant access</dt><dd>Read-only</dd></div>
+          <div><dt>Content</dt><dd>No content reads</dd></div>
+          <div><dt>Storage</dt><dd>Local raw evidence</dd></div>
+          <div><dt>Output</dt><dd>MCP-ready report packs</dd></div>
+        </dl>
+      </section>
+
+      <section class="notice">
+        <strong>Trust boundary:</strong>
+        <span>Auditex is not certification, not legal advice, and not guaranteed security.</span>
+      </section>
+
+      <section class="two-column" id="scope">
+        <div>
+          <h2>What it does</h2>
+          <ul class="plain-list">
+            <li>Collects tenant audit evidence for authorised operators.</li>
+            <li>Records proof tables, API inventory, checksums, and blockers.</li>
+            <li>Keeps source, docs, issues, and releases on GitHub.</li>
+          </ul>
+        </div>
+        <div>
+          <h2>What it avoids</h2>
+          <ul class="plain-list">
+            <li>No mailbox or file body reads on the public audit surface.</li>
+            <li>No production writes during evidence collection.</li>
+            <li>No claims that the output replaces human review.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="run-section" id="run">
+        <h2>Run path</h2>
+        <ol class="run-list">
+          <li><strong>Clone</strong><span>Use the GitHub repository as the source of truth.</span></li>
+          <li><strong>Verify</strong><span>Check release notes, permissions, and checksums.</span></li>
+          <li><strong>Collect</strong><span>Run read-only evidence collection locally.</span></li>
+          <li><strong>Review</strong><span>Inspect report packs before handoff.</span></li>
         </ol>
       </section>
 
-      <section id="faq" class="section faq-section">
-        <div class="section-head">
-          <p class="eyebrow">Plain answers</p>
-          <h2>Trust comes from inspectable work.</h2>
-        </div>
-        <div class="faq-grid">
-          <article>
-            <h3>Where are docs?</h3>
-            <p>In the repository README and linked GitHub materials.</p>
-          </article>
-          <article>
-            <h3>Does Auditex certify a tenant?</h3>
-            <p>No. It creates evidence for human review.</p>
-          </article>
-          <article>
-            <h3>Can it read user content?</h3>
-            <p>The public audit surface is positioned against content reads.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="cta-strip">
+      <section class="source-box">
         <div>
-          <p class="eyebrow">Start here</p>
-          <h2>Source, issues, and releases live on GitHub.</h2>
+          <h2>GitHub is the source of truth.</h2>
+          <p>Use the repository for current code, documentation, releases, and issue tracking.</p>
         </div>
-        <a class="button primary" href="https://github.com/magrathean-uk/auditex">Open repository</a>
+        <a class="button primary" href="https://github.com/magrathean-uk/auditex">Open GitHub</a>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>Auditex is open-source audit evidence software.</p>
+      <span>Auditex is open-source audit evidence software.</span>
       <nav class="footer-links" aria-label="Footer links">
         <a href="https://github.com/magrathean-uk/auditex">GitHub</a>
         <a href="/privacy/">Privacy</a>
