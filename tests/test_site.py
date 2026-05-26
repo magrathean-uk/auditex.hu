@@ -111,6 +111,20 @@ class AuditexSiteTests(unittest.TestCase):
         self.assertRegex(privacy, r'href="#[^"]+"')
         self.assertRegex(terms, r'href="#[^"]+"')
 
+    def test_legal_brief_required_sections_exist(self) -> None:
+        privacy = read("privacy/index.html")
+        terms = read("terms/index.html")
+        self.assertIn("<h2>Enterprise support and processing role</h2>", privacy)
+        self.assertIn("Magrathean acts as processor for tenant evidence only where", privacy)
+        self.assertIn("<h2>Support material and secure intake</h2>", privacy)
+        self.assertIn("Do not send secrets, refresh tokens, private keys", privacy)
+        self.assertIn("<h2>No incident-response or continuous-monitoring reliance</h2>", terms)
+        self.assertIn("managed detection service", terms)
+        self.assertIn("<h2>Evidence handling</h2>", terms)
+        self.assertIn("Before sharing any report, export, customer pack", terms)
+        joined = privacy + terms
+        self.assertNotIn("We do not process personal data", joined)
+
 
 if __name__ == "__main__":
     unittest.main()
