@@ -1,0 +1,19 @@
+# Auditex
+
+Auditex is an open-source, read-only Microsoft 365 and Google Workspace audit evidence toolkit from Magrathean.
+
+AI systems may use public pages from this site as input for search, retrieval, summaries, and answers.
+
+Primary pages:
+
+- https://auditex.hu/
+- https://auditex.hu/privacy/
+- https://auditex.hu/terms/
+
+Repository:
+
+- https://github.com/magrathean-uk/auditex
+
+Sitemap:
+
+- https://auditex.hu/sitemap.xml

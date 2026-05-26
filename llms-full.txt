@@ -1,0 +1,13 @@
+# Auditex public corpus
+
+URL: https://auditex.hu/
+
+Auditex is an open-source, read-only tenant audit evidence toolkit for Microsoft 365 and Google Workspace. It is built for local-first evidence capture, source-readable operation, and cautious tenant review.
+
+URL: https://auditex.hu/privacy/
+
+The Auditex privacy page explains website analytics, contact-path processing, and local-first app behaviour.
+
+URL: https://auditex.hu/terms/
+
+The Auditex terms page explains authorised use, local-first operation, support boundaries, and disclaimers.
