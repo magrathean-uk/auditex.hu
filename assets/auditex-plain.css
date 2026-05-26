@@ -101,6 +101,12 @@ dd {
 }
 
 .brand-logo {
+  width: 3.25rem;
+  height: 3.25rem;
+  object-fit: contain;
+}
+
+.site-footer .brand-logo {
   width: 2rem;
   height: 2rem;
   object-fit: contain;

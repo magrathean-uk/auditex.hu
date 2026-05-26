@@ -98,6 +98,8 @@ class AuditexSiteTests(unittest.TestCase):
         self.assertIn("Copyright 2026 Magrathean UK Ltd.", home)
         self.assertIn("Auditex is a trademark of Magrathean UK Ltd.", home)
         self.assertIn('href="mailto:contact@magrathean.uk"', home)
+        self.assertRegex(css, r"\.brand-logo \{[^}]*width: 3\.25rem;[^}]*height: 3\.25rem;", re.DOTALL)
+        self.assertRegex(css, r"\.site-footer \.brand-logo \{[^}]*width: 2rem;[^}]*height: 2rem;", re.DOTALL)
         self.assertRegex(css, r"\.copyright img \{[^}]*width: 2rem;[^}]*height: 2rem;", re.DOTALL)
 
     def test_legal_pages_have_contents_navigation(self) -> None:
