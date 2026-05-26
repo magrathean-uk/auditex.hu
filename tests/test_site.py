@@ -90,6 +90,15 @@ class AuditexSiteTests(unittest.TestCase):
         self.assertIn("prefers-reduced-motion", read("assets/auditex-plain.css"))
         self.assertIn(":focus-visible", read("assets/auditex-plain.css"))
 
+    def test_footer_has_magrathean_branding(self) -> None:
+        home = read("index.html")
+        css = read("assets/auditex-plain.css")
+        self.assertIn("/assets/magrathean-mark.svg", home)
+        self.assertIn("Copyright 2026 Magrathean UK Ltd.", home)
+        self.assertIn("Auditex is a trademark of Magrathean UK Ltd.", home)
+        self.assertIn('href="mailto:contact@magrathean.uk"', home)
+        self.assertRegex(css, r"\.copyright img \{[^}]*width: 2rem;[^}]*height: 2rem;", re.DOTALL)
+
     def test_legal_pages_have_contents_navigation(self) -> None:
         privacy = read("privacy/index.html")
         terms = read("terms/index.html")
