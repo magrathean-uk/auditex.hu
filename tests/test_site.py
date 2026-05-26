@@ -15,7 +15,6 @@ class AuditexSiteTests(unittest.TestCase):
         home = read("index.html")
         for text in [
             "Auditex",
-            "Plain product page",
             "https://github.com/magrathean-uk/auditex",
             "Microsoft 365",
             "Google Workspace",
@@ -31,6 +30,7 @@ class AuditexSiteTests(unittest.TestCase):
         self.assertIn("not guaranteed security", lowered)
         self.assertNotIn("GitHub is the source of truth", home)
         self.assertNotIn("Open GitHub", home)
+        self.assertNotIn("Plain product page", home)
         self.assertNotRegex(home, r'<nav class="footer-links"[^>]*>\\s*<a href="https://github.com/magrathean-uk/auditex">GitHub</a>')
         self.assertNotIn('aria-label="Primary navigation"', home)
 
