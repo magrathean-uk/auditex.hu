@@ -51,6 +51,7 @@ class AuditexSiteTests(unittest.TestCase):
             self.assertNotIn(forbidden, home)
 
         self.assertNotRegex(home, r'<img[^>]+(app-screen|desktop|screenshot)')
+        self.assertNotIn(">Releases<", home)
         self.assertNotIn("border-radius: 999", css)
         self.assertNotIn("border-radius: 50%", css)
         self.assertNotIn("min-height: 70vh", css)
