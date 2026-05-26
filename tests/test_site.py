@@ -33,7 +33,7 @@ class AuditexSiteTests(unittest.TestCase):
 
     def test_home_has_no_reference_repo_content_screenshots_or_pills(self) -> None:
         home = read("index.html")
-        css = read("assets/site.css")
+        css = read("assets/auditex-plain.css")
         for forbidden in [
             "AppNest",
             "app-screen.png",
@@ -81,10 +81,10 @@ class AuditexSiteTests(unittest.TestCase):
 
     def test_shared_stylesheet_and_accessibility_hooks_exist(self) -> None:
         home = read("index.html")
-        self.assertIn("/assets/site.css", home)
+        self.assertIn("/assets/auditex-plain.css", home)
         self.assertIn("Skip to content", home)
-        self.assertIn("prefers-reduced-motion", read("assets/site.css"))
-        self.assertIn(":focus-visible", read("assets/site.css"))
+        self.assertIn("prefers-reduced-motion", read("assets/auditex-plain.css"))
+        self.assertIn(":focus-visible", read("assets/auditex-plain.css"))
 
     def test_legal_pages_have_contents_navigation(self) -> None:
         privacy = read("privacy/index.html")
