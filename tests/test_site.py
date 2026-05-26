@@ -23,13 +23,14 @@ class AuditexSiteTests(unittest.TestCase):
             "No content reads",
             "Local raw evidence",
             "MCP-ready report packs",
-            "GitHub is the source of truth",
         ]:
             self.assertIn(text, home)
         lowered = home.lower()
         self.assertIn("not certification", lowered)
         self.assertIn("not legal advice", lowered)
         self.assertIn("not guaranteed security", lowered)
+        self.assertNotIn("GitHub is the source of truth", home)
+        self.assertNotIn("Open GitHub", home)
 
     def test_home_has_no_reference_repo_content_screenshots_or_pills(self) -> None:
         home = read("index.html")
@@ -47,6 +48,7 @@ class AuditexSiteTests(unittest.TestCase):
             "app-hero",
             "audit-panel",
             "panel-bar",
+            "source-box",
         ]:
             self.assertNotIn(forbidden, home)
 
