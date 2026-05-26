@@ -31,6 +31,7 @@ class AuditexSiteTests(unittest.TestCase):
         self.assertIn("not guaranteed security", lowered)
         self.assertNotIn("GitHub is the source of truth", home)
         self.assertNotIn("Open GitHub", home)
+        self.assertNotRegex(home, r'<nav class="footer-links"[^>]*>\\s*<a href="https://github.com/magrathean-uk/auditex">GitHub</a>')
 
     def test_home_has_no_reference_repo_content_screenshots_or_pills(self) -> None:
         home = read("index.html")
