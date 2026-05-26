@@ -36,7 +36,7 @@ class AuditexSiteTests(unittest.TestCase):
 
     def test_home_has_no_reference_repo_content_screenshots_or_pills(self) -> None:
         home = read("index.html")
-        css = read("assets/auditex-plain.css")
+        css = read("assets/auditex-plain-v2.css")
         for forbidden in [
             "AppNest",
             "app-screen.png",
@@ -86,14 +86,14 @@ class AuditexSiteTests(unittest.TestCase):
 
     def test_shared_stylesheet_and_accessibility_hooks_exist(self) -> None:
         home = read("index.html")
-        self.assertIn("/assets/auditex-plain.css", home)
+        self.assertIn("/assets/auditex-plain-v2.css", home)
         self.assertIn("Skip to content", home)
-        self.assertIn("prefers-reduced-motion", read("assets/auditex-plain.css"))
-        self.assertIn(":focus-visible", read("assets/auditex-plain.css"))
+        self.assertIn("prefers-reduced-motion", read("assets/auditex-plain-v2.css"))
+        self.assertIn(":focus-visible", read("assets/auditex-plain-v2.css"))
 
     def test_footer_has_magrathean_branding(self) -> None:
         home = read("index.html")
-        css = read("assets/auditex-plain.css")
+        css = read("assets/auditex-plain-v2.css")
         self.assertIn("/assets/magrathean-mark.svg", home)
         self.assertIn("Copyright 2026 Magrathean UK Ltd.", home)
         self.assertIn("Auditex is a trademark of Magrathean UK Ltd.", home)
