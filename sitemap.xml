@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://auditex.hu/</loc></url>
-  <url><loc>https://auditex.hu/proof/</loc></url>
-  <url><loc>https://auditex.hu/docs/</loc></url>
-  <url><loc>https://auditex.hu/docs/quickstart/</loc></url>
-  <url><loc>https://auditex.hu/docs/provider-coverage/</loc></url>
-  <url><loc>https://auditex.hu/docs/bundle-anatomy/</loc></url>
-  <url><loc>https://auditex.hu/docs/mcp-report-packs/</loc></url>
-  <url><loc>https://auditex.hu/download/</loc></url>
-  <url><loc>https://auditex.hu/sample-pack/</loc></url>
   <url><loc>https://auditex.hu/privacy/</loc></url>
   <url><loc>https://auditex.hu/terms/</loc></url>
 </urlset>

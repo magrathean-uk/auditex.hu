@@ -11,20 +11,40 @@ def read(relpath: str) -> str:
 
 
 class AuditexSiteTests(unittest.TestCase):
-    def test_home_is_simple_open_source_landing(self) -> None:
+    def test_home_is_github_first_auditex_landing(self) -> None:
         home = read("index.html")
-        self.assertIn("Open-source", home)
-        self.assertIn("GitHub", home)
-        self.assertNotIn("Read docs", home)
-        self.assertNotIn("View sample pack", home)
-        self.assertNotIn("trust-pill", home)
-        self.assertNotIn("hero-badge", home)
-        self.assertNotIn("First screen answer", home)
-        self.assertNotIn("Static-site path from first read to first run.", home)
+        for text in [
+            "Open-source tenant audit evidence",
+            "https://github.com/magrathean-uk/auditex",
+            "Microsoft 365",
+            "Google Workspace",
+            "Read-only",
+            "No content reads",
+            "Local raw evidence",
+            "MCP-ready report packs",
+        ]:
+            self.assertIn(text, home)
         lowered = home.lower()
         self.assertIn("not certification", lowered)
         self.assertIn("not legal advice", lowered)
         self.assertIn("not guaranteed security", lowered)
+
+    def test_home_has_no_reference_repo_content_or_screenshots(self) -> None:
+        home = read("index.html")
+        for forbidden in [
+            "AppNest",
+            "app-screen.png",
+            "desktop.png",
+            "Instagram",
+            "pricing",
+            "testimonial",
+            "Download Now",
+            "Ready to Transform Your Experience",
+            "$9",
+        ]:
+            self.assertNotIn(forbidden, home)
+
+        self.assertNotRegex(home, r'<img[^>]+(app-screen|desktop|screenshot)')
 
     def test_home_has_software_schema_and_social_metadata(self) -> None:
         home = read("index.html")
@@ -34,36 +54,20 @@ class AuditexSiteTests(unittest.TestCase):
         self.assertIn('name="twitter:card"', home)
         self.assertIn('"@type":"SoftwareApplication"', home.replace(" ", ""))
 
-    def test_docs_download_and_proof_pages_exist(self) -> None:
+    def test_required_public_pages_exist(self) -> None:
         for relpath in [
-            "proof/index.html",
-            "docs/index.html",
-            "docs/quickstart/index.html",
-            "docs/provider-coverage/index.html",
-            "docs/bundle-anatomy/index.html",
-            "docs/mcp-report-packs/index.html",
-            "download/index.html",
-            "sample-pack/index.html",
+            "privacy/index.html",
+            "terms/index.html",
         ]:
             self.assertTrue((ROOT / relpath).exists(), relpath)
-
-    def test_docs_hub_links_main_workflows(self) -> None:
-        docs = read("docs/index.html")
-        self.assertIn("/docs/quickstart/", docs)
-        self.assertIn("/docs/provider-coverage/", docs)
-        self.assertIn("/docs/bundle-anatomy/", docs)
-        self.assertIn("/docs/mcp-report-packs/", docs)
-        self.assertIn("/download/", docs)
-
-    def test_quickstart_has_faq_schema(self) -> None:
-        quickstart = read("docs/quickstart/index.html")
-        self.assertIn('"@type":"FAQPage"', quickstart.replace(" ", ""))
-        self.assertIn("First run", quickstart)
-        self.assertIn("read-only", quickstart.lower())
 
     def test_supporting_seo_files_exist(self) -> None:
         self.assertTrue((ROOT / "robots.txt").exists())
         self.assertTrue((ROOT / "sitemap.xml").exists())
+        sitemap = read("sitemap.xml")
+        self.assertIn("https://auditex.hu/", sitemap)
+        self.assertIn("https://auditex.hu/privacy/", sitemap)
+        self.assertIn("https://auditex.hu/terms/", sitemap)
 
     def test_shared_stylesheet_and_accessibility_hooks_exist(self) -> None:
         home = read("index.html")
