@@ -189,6 +189,58 @@ pre {
   padding: clamp(1.6rem, 4vw, 3.4rem) 0 clamp(2rem, 5vw, 4rem);
 }
 
+.home-minimal {
+  padding: clamp(1.8rem, 4vw, 3rem) 0 clamp(2rem, 4vw, 3rem);
+}
+
+.home-minimal-inner {
+  width: min(100% - 1rem, 92rem);
+  margin: 0 auto;
+}
+
+.home-minimal-inner h1 {
+  max-width: 68rem;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 0.98;
+  font-weight: 780;
+}
+
+.home-minimal-inner .lead {
+  max-width: 54rem;
+  margin-top: 1rem;
+  font-size: clamp(1.05rem, 1.7vw, 1.2rem);
+  line-height: 1.62;
+  color: var(--ink-soft);
+}
+
+.home-meta {
+  margin: 1.25rem 0 0;
+  padding-left: 1.1rem;
+  max-width: 54rem;
+}
+
+.home-meta li {
+  margin-top: 0.45rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.home-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.home-github-link {
+  color: var(--ink);
+  font-size: 1.02rem;
+  font-weight: 760;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
 .hero-layout,
 .page-hero-layout {
   display: grid;
@@ -743,6 +795,16 @@ pre {
 
   .cta-row {
     flex-direction: column;
+  }
+
+  .home-minimal-inner {
+    width: min(100% - 0.75rem, 92rem);
+  }
+
+  .home-links {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.8rem;
   }
 }
 

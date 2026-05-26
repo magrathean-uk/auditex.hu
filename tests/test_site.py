@@ -11,17 +11,20 @@ def read(relpath: str) -> str:
 
 
 class AuditexSiteTests(unittest.TestCase):
-    def test_home_has_trust_first_ctas_and_disclaimer(self) -> None:
+    def test_home_is_simple_open_source_landing(self) -> None:
         home = read("index.html")
-        self.assertIn("Read docs", home)
-        self.assertIn("View sample pack", home)
-        self.assertIn("Read-only", home)
-        self.assertIn("No content reads", home)
-        self.assertIn("Local raw evidence", home)
-        self.assertIn("Human-reviewed report packs", home)
-        self.assertRegex(home, r"not certification", re.IGNORECASE)
-        self.assertRegex(home, r"not legal advice", re.IGNORECASE)
-        self.assertRegex(home, r"not guaranteed security", re.IGNORECASE)
+        self.assertIn("Open-source", home)
+        self.assertIn("GitHub", home)
+        self.assertNotIn("Read docs", home)
+        self.assertNotIn("View sample pack", home)
+        self.assertNotIn("trust-pill", home)
+        self.assertNotIn("hero-badge", home)
+        self.assertNotIn("First screen answer", home)
+        self.assertNotIn("Static-site path from first read to first run.", home)
+        lowered = home.lower()
+        self.assertIn("not certification", lowered)
+        self.assertIn("not legal advice", lowered)
+        self.assertIn("not guaranteed security", lowered)
 
     def test_home_has_software_schema_and_social_metadata(self) -> None:
         home = read("index.html")
